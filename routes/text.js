@@ -21,11 +21,16 @@ router.get('/list', (req, res, next) => {
   }).catch((err)=>{
     res.json(err);
   })
-
-
 });
 
-
+router.get('/:id', (req, res) => {
+  const promise = Baslik.findById(req.params.id);
+  promise.then((data)=>{
+    res.json(data);
+  }).catch((err)=>{
+    res.json(err)
+  })
+});
 
 
 
